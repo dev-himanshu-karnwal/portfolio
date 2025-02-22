@@ -22,14 +22,6 @@ const ProjectModal = ({
 }) => {
   if (!selectedProject) return null;
 
-  const mediaItems = [
-    ...selectedProject.images.map((image) => ({ type: "image", src: image })),
-    ...(selectedProject.videos || []).map((video) => ({
-      type: "video",
-      src: video,
-    })),
-  ];
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -40,7 +32,7 @@ const ProjectModal = ({
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        className="bg-white dark:bg-slate-800 rounded-xl max-w-2xl w-full p-6"
+        className="bg-white dark:bg-slate-800 rounded-xl max-w-2xl w-full p-6 max-h-[90vh] overflow-y-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -72,21 +64,13 @@ const ProjectModal = ({
           <div className="swiper-button-prev absolute top-1/2 left-4 transform -translate-y-1/2 z-10 text-primary hover:text-secondary cursor-pointer">
             <ChevronLeft size={32} />
           </div>
-          {mediaItems.map((item, index) => (
+          {selectedProject.images.map((item, index) => (
             <SwiperSlide key={index}>
-              {item.type === "image" ? (
-                <img
-                  src={item.src}
-                  alt={`${selectedProject.title} - Slide ${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <video
-                  src={item.src}
-                  controls
-                  className="w-full h-full object-cover"
-                />
-              )}
+              <img
+                src={item}
+                alt={`${selectedProject.title} - Slide ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -110,24 +94,28 @@ const ProjectModal = ({
 
         {/* Buttons */}
         <div className="flex gap-4">
-          <a
-            href={selectedProject.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary flex items-center gap-2"
-          >
-            <Github size={20} />
-            View Code
-          </a>
-          <a
-            href={selectedProject.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-secondary flex items-center gap-2"
-          >
-            <ExternalLink size={20} />
-            Live Demo
-          </a>
+          {selectedProject.github && (
+            <a
+              href={selectedProject.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary flex items-center gap-2"
+            >
+              <Github size={20} />
+              View Code
+            </a>
+          )}
+          {selectedProject.demo && (
+            <a
+              href={selectedProject.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary flex items-center gap-2"
+            >
+              <ExternalLink size={20} />
+              Live Demo
+            </a>
+          )}
         </div>
       </motion.div>
     </motion.div>

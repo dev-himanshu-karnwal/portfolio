@@ -47,7 +47,7 @@ const Projects = () => {
       <div className="relative w-[80vw] md:w-1/2 mx-auto mt-4 md:mt-0 mb-8 group focus-within:scale-[1.05] transition-transform duration-300">
         <input
           type="text"
-          placeholder="Search projects..."
+          placeholder="Search Projects..."
           value={searchTerm}
           onChange={onSearchChange}
           className="w-full px-4 py-2 pr-10 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"

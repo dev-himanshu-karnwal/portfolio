@@ -39,15 +39,13 @@ const Footer = () => {
     <footer className="bg-white dark:bg-slate-800 shadow-lg mt-auto">
       <div className="container mx-auto px-4 py-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Brand Section */}
           <div>
             <h3 className="text-2xl font-bold text-primary mb-4">{name}</h3>
-            <p className="text-primary dark:text-secondary">
-              Code. Deploy. Optimize. Repeat.
+            <p className="text-primary dark:text-secondary font-mono">
+              Code today, impact tomorrow
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
@@ -64,7 +62,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Social Links */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
             <div className="flex gap-4">

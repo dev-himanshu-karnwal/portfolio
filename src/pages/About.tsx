@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import GradientBG from "../components/GradientBG";
 import Skills from "../sections/Skills";
 import Eperience from "../sections/Eperience";
+import Education from "../sections/Education";
 
 const About = () => {
   return (
@@ -34,6 +35,7 @@ const About = () => {
 
       <Eperience />
       <Skills />
+      <Education />
     </div>
   );
 };

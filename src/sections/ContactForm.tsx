@@ -46,7 +46,10 @@ function ContactForm() {
 
       setSubmitStatus("success");
       reset();
-      setTimeout(() => setIsIconFlying(false), 1000);
+      setTimeout(() => {
+        setIsIconFlying(false);
+        setSubmitStatus("idle");
+      }, 1000);
     } catch (error) {
       setSubmitStatus("error");
       console.error("Error sending message: ", error);
